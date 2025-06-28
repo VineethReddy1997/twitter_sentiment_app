@@ -1,13 +1,11 @@
-import tweepy
 import os
+import tweepy
 
-# Load environment variable
-bearer_token = os.getenv("TWITTER_BEARER_TOKEN")
+bearer_token = os.getenv("BEARER_TOKEN")
 
-# Create tweepy client
 client = tweepy.Client(bearer_token=bearer_token)
 
-def fetch_tweets(query, max_results=10):
+def fetch_tweets(query, max_results=5):
     try:
         tweets = client.search_recent_tweets(
             query=query,
@@ -18,8 +16,6 @@ def fetch_tweets(query, max_results=10):
         else:
             return []
     except tweepy.errors.TooManyRequests:
-        print("Rate limit hit. Try again later.")
         return ["Rate limit hit. Try again later."]
     except Exception as e:
-        print("Error fetching tweets:", e)
-        return ["Error fetching tweets."]
+        return [f"Error fetching tweets: {str(e)}"]

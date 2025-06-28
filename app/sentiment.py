@@ -1,20 +1,12 @@
 from transformers import pipeline
 
-# Load pre-trained Hugging Face model for Twitter sentiment
+# Load a small model ONCE globally
+# e.g. distilbert-base-uncased-finetuned-sst-2-english (small, ~250MB)
 sentiment_pipeline = pipeline(
     "sentiment-analysis",
-    model="cardiffnlp/twitter-roberta-base-sentiment"
+    model="distilbert-base-uncased-finetuned-sst-2-english"
 )
 
-# Label mapping because cardiffnlp uses numeric labels
-label_mapping = {
-    "LABEL_0": "Negative",
-    "LABEL_1": "Neutral",
-    "LABEL_2": "Positive"
-}
-
 def analyze_sentiment(text):
-    result = sentiment_pipeline(text, truncation=True, max_length=512)[0]
-    label = result["label"]
-    sentiment = label_mapping.get(label, "Neutral")
-    return sentiment
+    result = sentiment_pipeline(text)
+    return result[0]["label"]
