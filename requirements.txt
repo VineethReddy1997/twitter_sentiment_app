@@ -1,0 +1,6 @@
+Flask
+tweepy
+transformers
+torch
+gunicorn
+python-dotenv

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Twitter Sentiment App</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/733/733579.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+</head>
+<body class="bg-dark text-light">
+  <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100 fade-in">
+    <h1 class="display-4 fw-bold mb-3 text-primary">Twitter Sentiment Analyzer</h1>
+    <p class="lead text-secondary text-center mb-4">
+      Discover how the world feels on Twitter in real-time. Analyze trending tweets with powerful sentiment analysis.
+    </p>
+    <a href="/view" class="btn btn-primary btn-lg">View Tweets Sentiment</a>
+  </div>
+
+  <footer class="text-center text-muted mt-5 py-3 small bg-dark">
+    &copy; 2025 Vineeth Reddy. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
